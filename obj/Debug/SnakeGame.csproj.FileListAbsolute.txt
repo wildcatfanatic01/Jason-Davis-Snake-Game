@@ -20,3 +20,14 @@ C:\Users\jason\OneDrive\Documents\Projects\Jason-Davis-Snake-Game\obj\Debug\Snak
 C:\Users\jason\OneDrive\Documents\Projects\Jason-Davis-Snake-Game\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
 C:\Users\jason\OneDrive\Documents\Projects\Jason-Davis-Snake-Game\obj\Debug\SnakeGame.exe
 C:\Users\jason\OneDrive\Documents\Projects\Jason-Davis-Snake-Game\obj\Debug\SnakeGame.pdb
+C:\Users\jason\OneDrive\Documents\Projects\bin\Debug\SnakeGame.exe.config
+C:\Users\jason\OneDrive\Documents\Projects\bin\Debug\SnakeGame.exe
+C:\Users\jason\OneDrive\Documents\Projects\bin\Debug\SnakeGame.pdb
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.csproj.AssemblyReference.cache
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.csproj.SuggestedBindingRedirects.cache
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.Form1.resources
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.Properties.Resources.resources
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.csproj.GenerateResource.cache
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.exe
+C:\Users\jason\OneDrive\Documents\Projects\obj\Debug\SnakeGame.pdb

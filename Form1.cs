@@ -218,6 +218,8 @@ namespace SnakeGame
 
             Snake.Clear();
 
+           
+
             startButton.Enabled = false;
             snapButton.Enabled = false;
             score = 0;      //I set the initial value of score to 0.
@@ -268,6 +270,11 @@ namespace SnakeGame
             startButton.Enabled = true;
             snapButton.Enabled = true;
 
+            //This will write a line to the console that will give the difference between the Player's
+            //current score and the High Score.  I did this as a way to have a function that returned
+            //a value, and then I use it to write to the Console.
+            Console.WriteLine(DifferenceInScores(score, highScore));
+
             //If the score the player just got beat a previous high score, I will display that to them.
             if (score > highScore)
             {
@@ -278,8 +285,13 @@ namespace SnakeGame
                 txtHighScore.TextAlign = ContentAlignment.MiddleCenter;
             }
         }
-
-
+        //This function will return a value.  None of my previous functions return values, so I decided
+        //to throw this one in, as it is a requirement for the project.
+        private int DifferenceInScores(int score, int highScore)
+        {
+            int differenceInScore = score - highScore;
+            return differenceInScore;
+        }
     }
 }
 
