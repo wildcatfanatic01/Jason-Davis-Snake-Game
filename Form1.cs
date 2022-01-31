@@ -18,22 +18,22 @@ namespace SnakeGame
         private List<Circle> Snake = new List<Circle>();    //This creates a list array for the Snake.
         private Circle food = new Circle();                 //This creates a Circle class called Food.
 
-        int maxWidth;
-        int maxHeight;
+        int maxWidth;                                       //This will be the maximum Width for the window of the Game.
+        int maxHeight;                                      //This will be the maximum Height for the window of the Game.
 
-        int score;
-        int highScore;
+        int score;                                          //This will keep track of the player's score.
+        int highScore;                                      //This will keep track of the Highest Score a player gets.
 
-        Random rand = new Random();
+        Random rand = new Random();                         //This creates a new object within the class called rand.
 
-        bool goLeft, goRight, goDown, goUp;
+        bool goLeft, goRight, goDown, goUp;                 //Boolean variables to keep track of directions.
 
 
         public Form1()
         {
             InitializeComponent();
 
-            new Settings();
+            new Settings();                                 //This is used to set the default for the game.
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -134,7 +134,7 @@ namespace SnakeGame
                             Snake[i].Y--;
                             break;
                     }
-
+                    //All of the following If statements keep the snake within the boundaries of the Window
                     if (Snake[i].X < 0)
                     {
                         Snake[i].X = maxWidth;
@@ -220,7 +220,7 @@ namespace SnakeGame
 
             startButton.Enabled = false;
             snapButton.Enabled = false;
-            score = 0;
+            score = 0;      //I set the initial value of score to 0.
             txtScore.Text = "Score: " + score;
 
             Circle head = new Circle { X = 10, Y = 5 };
@@ -231,7 +231,7 @@ namespace SnakeGame
                 Circle body = new Circle();
                 Snake.Add(body);
             }
-
+            //Creating the first food object.
             food = new Circle { X = rand.Next(2, maxWidth), Y = rand.Next(2, maxHeight) };
 
             gameTimer.Start();
@@ -240,6 +240,7 @@ namespace SnakeGame
 
         private void EatFood()
         {
+            //Every time the Snake eats food, we will add 1 to the score.
             score += 1;
 
             txtScore.Text = "Score: " + score;
@@ -267,6 +268,7 @@ namespace SnakeGame
             startButton.Enabled = true;
             snapButton.Enabled = true;
 
+            //If the score the player just got beat a previous high score, I will display that to them.
             if (score > highScore)
             {
                 highScore = score;
