@@ -15,8 +15,8 @@ namespace SnakeGame
     public partial class Form1 : Form
     {
 
-        private List<Circle> Snake = new List<Circle>();
-        private Circle food = new Circle();
+        private List<Circle> Snake = new List<Circle>();    //This creates a list array for the Snake.
+        private Circle food = new Circle();                 //This creates a Circle class called Food.
 
         int maxWidth;
         int maxHeight;
@@ -38,7 +38,7 @@ namespace SnakeGame
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-
+            //KeyIsDown will trigger a change in direction of the Snake.
             if (e.KeyCode == Keys.Left && Settings.directions != "right")
             {
                 goLeft = true;
@@ -62,6 +62,7 @@ namespace SnakeGame
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
+            //KeyIsUp also triggers a change in direction of the snake that will end up being used in the KeyIsDown Function.
             if (e.KeyCode == Keys.Left)
             {
                 goLeft = false;
@@ -82,6 +83,7 @@ namespace SnakeGame
 
         private void StartGame(object sender, EventArgs e)
         {
+            //When the player clicks the Start button, we restart the game brand new.
             RestartGame();
         }
 
@@ -109,11 +111,14 @@ namespace SnakeGame
             }
             // end of directions
 
+            //This will be the main loop for the Snake's head and parts.
+
             for (int i = Snake.Count - 1; i >= 0; i--)
             {
+                //We check to see if the Snake's Head is active.
                 if (i == 0)
                 {
-
+                    //If so, we are going to move the rest of the body according to which way the head is moving.
                     switch (Settings.directions)
                     {
                         case "left":
@@ -147,17 +152,18 @@ namespace SnakeGame
                         Snake[i].Y = 0;
                     }
 
-
+                    //This will detect collision between the Snake's head and Food
                     if (Snake[i].X == food.X && Snake[i].Y == food.Y)
                     {
                         EatFood();
                     }
-
+                    //This will check if the Snake Collides with itself, i.e. Eats itself.
                     for (int j = 1; j < Snake.Count; j++)
                     {
 
                         if (Snake[i].X == Snake[j].X && Snake[i].Y == Snake[j].Y)
                         {
+                            //If the Snake did in fact collide with itself and eat itself, the Game is now over.
                             GameOver();
                         }
 
@@ -167,6 +173,7 @@ namespace SnakeGame
                 }
                 else
                 {
+                    //There have been no collisions, and the game continues on.
                     Snake[i].X = Snake[i - 1].X;
                     Snake[i].Y = Snake[i - 1].Y;
                 }
@@ -179,7 +186,8 @@ namespace SnakeGame
 
         private void UpdatePictureBoxGraphics(object sender, PaintEventArgs e)
         {
-            Graphics canvas = e.Graphics;
+            //This is where we will see the snake and its parts moving.
+            Graphics canvas = e.Graphics;       //Creating a new graphics class called canvas.
 
             Brush snakeColour;
 
@@ -187,28 +195,20 @@ namespace SnakeGame
             {
                 if (i == 0)
                 {
+                    //This colors the head of the snake.
                     snakeColour = Brushes.Black;
                 }
                 else
                 {
+                    //This colors the body of the snake.
                     snakeColour = Brushes.DarkGreen;
                 }
-
-                canvas.FillEllipse(snakeColour, new Rectangle
-                    (
-                    Snake[i].X * Settings.Width,
-                    Snake[i].Y * Settings.Height,
-                    Settings.Width, Settings.Height
-                    ));
+                //This will draw the Snake's body and head.
+                canvas.FillEllipse(snakeColour, new Rectangle(Snake[i].X * Settings.Width, Snake[i].Y * Settings.Height,Settings.Width, Settings.Height));
             }
 
-
-            canvas.FillEllipse(Brushes.DarkRed, new Rectangle
-            (
-            food.X * Settings.Width,
-            food.Y * Settings.Height,
-            Settings.Width, Settings.Height
-            ));
+            //This will draw the food.
+            canvas.FillEllipse(Brushes.DarkRed, new Rectangle(food.X * Settings.Width, food.Y * Settings.Height, Settings.Width, Settings.Height));
         }
 
         private void RestartGame()
@@ -243,15 +243,18 @@ namespace SnakeGame
             score += 1;
 
             txtScore.Text = "Score: " + score;
-
+            
+            //This will add a part to the Snake's Body.
             Circle body = new Circle
             {
                 X = Snake[Snake.Count - 1].X,
                 Y = Snake[Snake.Count - 1].Y
             };
 
+            //This will add the part to the Snake Array.
             Snake.Add(body);
 
+            //This will create a new Food with a random X and Y.
             food = new Circle { X = rand.Next(2, maxWidth), Y = rand.Next(2, maxHeight) };
 
 
@@ -259,6 +262,7 @@ namespace SnakeGame
 
         private void GameOver()
         {
+            //When the game has ended, the following will run.
             gameTimer.Stop();
             startButton.Enabled = true;
             snapButton.Enabled = true;
