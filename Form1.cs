@@ -224,6 +224,7 @@ namespace SnakeGame
            
             //We set the start button to false because this means the player clicked start to play.
             startButton.Enabled = false;
+            snapButton.Enabled = false;
             
             score = 0;      //I set the initial value of score to 0.
             txtScore.Text = "Score: " + score;
@@ -274,6 +275,7 @@ namespace SnakeGame
 
             //This allows the player to click the Start button again to play again.
             startButton.Enabled = true;
+            snapButton.Enabled = true;
             
 
             //This will write a line to the console that will give the difference between the Player's
