@@ -213,21 +213,25 @@ namespace SnakeGame
 
         private void RestartGame()
         {
+            //First, we will set the Maximum Width and Height window for the game.
             maxWidth = picCanvas.Width / Settings.Width - 1;
             maxHeight = picCanvas.Height / Settings.Height - 1;
+
+            //We will also clear the snake that is on the screen, so that we can start over.
 
             Snake.Clear();
 
            
-
+            //We set the start button to false because this means the player clicked start to play.
             startButton.Enabled = false;
-            snapButton.Enabled = false;
+            
             score = 0;      //I set the initial value of score to 0.
             txtScore.Text = "Score: " + score;
 
-            Circle head = new Circle { X = 10, Y = 5 };
+            Circle head = new Circle { X = 10, Y = 5 };     //Setting the position of the head of the snake at restart.
             Snake.Add(head); // adding the head part of the snake to the list
 
+            //Creating the default body of the snake.
             for (int i = 0; i < 10; i++)
             {
                 Circle body = new Circle();
@@ -267,8 +271,10 @@ namespace SnakeGame
         {
             //When the game has ended, the following will run.
             gameTimer.Stop();
+
+            //This allows the player to click the Start button again to play again.
             startButton.Enabled = true;
-            snapButton.Enabled = true;
+            
 
             //This will write a line to the console that will give the difference between the Player's
             //current score and the High Score.  I did this as a way to have a function that returned
