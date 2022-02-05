@@ -15,7 +15,7 @@ namespace SnakeGame
     public partial class Form1 : Form
     {
 
-        private List<Circle> Snake = new List<Circle>();    //This creates a list array for the Snake.
+        private List<Circle> Snake = new List<Circle>();    //This creates a list for the Snake.
         private Circle food = new Circle();                 //This creates a Circle class called Food.
 
         int maxWidth;                                       //This will be the maximum Width for the window of the Game.
@@ -259,7 +259,7 @@ namespace SnakeGame
                 Y = Snake[Snake.Count - 1].Y
             };
 
-            //This will add the part to the Snake Array.
+            //This will add the part to the Snake List.
             Snake.Add(body);
 
             //This will create a new Food with a random X and Y.
