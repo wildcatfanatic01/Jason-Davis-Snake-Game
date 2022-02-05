@@ -9,8 +9,8 @@ namespace SnakeGame
     class Settings
     {
 
-        public static int Width { get; set; }       //This sets the Width as an int class.
-        public static int Height { get; set; }      //This sets the Height as an int class.
+        public static int Width { get; set; }       //This sets the Width property.
+        public static int Height { get; set; }      //This sets the Height property.
 
         public static string directions;            //This will be used to set the direction.
 
