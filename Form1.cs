@@ -16,7 +16,7 @@ namespace SnakeGame
     {
 
         private List<Circle> Snake = new List<Circle>();    //This creates a list for the Snake.
-        private Circle food = new Circle();                 //This creates a Circle class called Food.
+        private Circle food = new Circle();                 //This creates a Circle object called Food.
 
         int maxWidth;                                       //This will be the maximum Width for the window of the Game.
         int maxHeight;                                      //This will be the maximum Height for the window of the Game.
